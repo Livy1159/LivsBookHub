@@ -1,0 +1,75 @@
+@import 'variables';
+
+:root {
+  --bg: #{$bg};
+  --panel: #{$panel};
+  --muted: #{$muted};
+  --text: #{$text};
+  --brand: #{$brand};
+  --accent: #{$accent};
+  --border: #{$border};
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji';
+  background: radial-gradient(1200px 800px at 10% 10%, #111425 0%, $bg 50%);
+  color: $text;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &[href*='github']:hover {
+    color: #BF00FF;
+    text-shadow: 0 0 10px #BF00FF, 0 0 20px #BF00FF;
+  }
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 $spacing-sm 0;
+}
+
+.muted {
+  color: $muted;
+}
+
+.card {
+  background: $panel;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  padding: $spacing-md;
+}
+
+ul {
+  margin: $spacing-xs 0 $spacing-md 20px;
+}
+
+.code {
+  display: block;
+  background: $panel-dark;
+  border: 1px solid $border;
+  padding: $spacing-sm;
+  border-radius: $radius-md;
+  white-space: pre-wrap;
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: $spacing-2xl $spacing-lg;
+}
+

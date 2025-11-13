@@ -1,0 +1,90 @@
+@import 'variables';
+
+.container {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  max-width: 900px;
+  padding: $spacing-2xl $spacing-xl;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: $spacing-xl $spacing-lg;
+  }
+}
+
+.title {
+  font-size: 64px;
+  margin: 0 0 $spacing-sm 0;
+  font-weight: 700;
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 42px;
+  }
+}
+
+.subtitle {
+  margin: 0 0 $spacing-xl 0;
+  color: $muted;
+  font-size: 20px;
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 18px;
+  }
+}
+
+.lead {
+  font-size: 20px;
+  line-height: 1.7;
+  max-width: 72ch;
+  margin: 0 auto $spacing-2xl;
+  color: $text-light;
+  text-align: left;
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 18px;
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.ctaRow {
+  display: flex;
+  gap: $spacing-sm;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: $spacing-xl;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px $spacing-xl;
+  border-radius: $radius-md;
+  background: linear-gradient(135deg, $brand, $accent);
+  color: white;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(91, 140, 255, 0.3);
+  }
+}
+
+.buttonSecondary {
+  background: transparent;
+  border: 1px solid $border;
+
+  &:hover {
+    border-color: rgba(91, 140, 255, 0.4);
+    transform: translateY(-2px);
+  }
+}
+

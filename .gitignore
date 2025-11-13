@@ -1,0 +1,69 @@
+# dependencies
+node_modules/
+
+# production
+.next/
+out/
+dist/
+build/
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# env files (sensitive - contains database credentials, API keys, etc.)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+backend/.env
+backend/.env.local
+backend/.env.*.local
+
+# database files (sensitive - contains actual data)
+*.sqlite
+*.sqlite3
+*.db
+backend/database.sqlite
+backend/livsbookhub
+backend/*.sqlite
+backend/*.sqlite3
+backend/*.db
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# logs
+logs/
+*.log
+
+# coverage
+coverage/
+.nyc_output/
+
+# temporary files
+*.tmp
+*.temp
+.cache/
+
