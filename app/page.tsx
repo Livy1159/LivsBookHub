@@ -42,7 +42,7 @@ export default function HomePage() {
     return (
       <main className={styles.container}>
         <section className={styles.content}>
-          <p>Loading...</p>
+          <div className={styles.loading}>Loading your current read...</div>
         </section>
       </main>
     );
@@ -52,7 +52,7 @@ export default function HomePage() {
     return (
       <main className={styles.container}>
         <section className={styles.content}>
-          <p>Error: {error}</p>
+          <div className={styles.error}>Unable to load book information</div>
         </section>
       </main>
     );
@@ -62,8 +62,10 @@ export default function HomePage() {
     return (
       <main className={styles.container}>
         <section className={styles.content}>
-          <h1 className={styles.title}>Currently Reading:</h1>
-          <p className={styles.subtitle}>No book in progress</p>
+          <div className={styles.header}>
+            <span className={styles.label}>Currently Reading</span>
+          </div>
+          <div className={styles.emptyState}>No book in progress</div>
         </section>
       </main>
     );
@@ -71,10 +73,30 @@ export default function HomePage() {
 
   return (
     <main className={styles.container}>
+      <div className={styles.sparkleContainer}>
+        <div className={styles.sparkle}></div>
+        <div className={styles.sparkle}></div>
+        <div className={styles.sparkle}></div>
+        <div className={styles.sparkle}></div>
+        <div className={styles.sparkle}></div>
+      </div>
       <section className={styles.content}>
-        <h1 className={styles.title}>Currently Reading: {book.title}</h1>
-        <p className={styles.subtitle}>Author: {book.author}</p>
-        {book.genre && <p className={styles.subtitle}>Genre: {book.genre}</p>}
+        <div className={styles.header}>
+          <span className={styles.label}>Currently Reading</span>
+        </div>
+        <h1 className={styles.title}>{book.title}</h1>
+        <div className={styles.meta}>
+          <div className={styles.metaItem}>
+            <span className={styles.metaLabel}>Author</span>
+            <span className={styles.metaValue}>{book.author}</span>
+          </div>
+          {book.genre && (
+            <div className={styles.metaItem}>
+              <span className={styles.metaLabel}>Genre</span>
+              <span className={styles.metaValue}>{book.genre}</span>
+            </div>
+          )}
+        </div>
       </section>
     </main>
   );
