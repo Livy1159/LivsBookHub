@@ -36,7 +36,8 @@
 }
 
 .content {
-  max-width: 800px;
+  max-width: 1200px;
+  width: 90%;
   padding: $spacing-2xl $spacing-xl;
   text-align: left;
   position: relative;
@@ -48,6 +49,7 @@
   box-shadow: 0 8px 32px rgba(199, 125, 255, 0.15);
 
   @media (max-width: $breakpoint-mobile) {
+    width: 95%;
     padding: $spacing-xl $spacing-lg;
   }
 }
@@ -171,6 +173,164 @@
     opacity: 1;
     transform: scale(1.5);
   }
+}
+
+// Comments Section
+.commentsSection {
+  margin-top: $spacing-2xl;
+  padding-top: $spacing-xl;
+  border-top: 1px solid rgba(255, 107, 157, 0.2);
+}
+
+.commentsTitle {
+  font-size: 28px;
+  margin: 0 0 $spacing-lg 0;
+  background: linear-gradient(135deg, $rose, $lavender);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 24px;
+  }
+}
+
+.commentForm {
+  margin-bottom: $spacing-xl;
+  padding: $spacing-lg;
+  background: rgba(45, 27, 61, 0.3);
+  border-radius: $radius-md;
+  border: 1px solid rgba(255, 107, 157, 0.1);
+}
+
+.formRow {
+  margin-bottom: $spacing-md;
+
+  &:last-of-type {
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.chapterInput {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  background: rgba(26, 15, 31, 0.6);
+  border: 1px solid rgba(255, 107, 157, 0.2);
+  border-radius: $radius-sm;
+  color: $text-light;
+  font-size: 16px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: $rose;
+    box-shadow: 0 0 0 2px rgba(255, 107, 157, 0.1);
+  }
+
+  &::placeholder {
+    color: $muted;
+  }
+}
+
+.commentInput {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  background: rgba(26, 15, 31, 0.6);
+  border: 1px solid rgba(255, 107, 157, 0.2);
+  border-radius: $radius-sm;
+  color: $text-light;
+  font-size: 16px;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: $rose;
+    box-shadow: 0 0 0 2px rgba(255, 107, 157, 0.1);
+  }
+
+  &::placeholder {
+    color: $muted;
+  }
+}
+
+.submitButton {
+  padding: $spacing-sm $spacing-xl;
+  background: linear-gradient(135deg, $rose, $lavender);
+  border: none;
+  border-radius: $radius-md;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 157, 0.4);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.commentsList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.chapterGroup {
+  padding: $spacing-lg;
+  background: rgba(45, 27, 61, 0.3);
+  border-radius: $radius-md;
+  border: 1px solid rgba(255, 107, 157, 0.1);
+}
+
+.chapterTitle {
+  font-size: 20px;
+  margin: 0 0 $spacing-md 0;
+  color: $lavender;
+  font-weight: 600;
+  padding-bottom: $spacing-sm;
+  border-bottom: 1px solid rgba(199, 125, 255, 0.2);
+}
+
+.commentItem {
+  margin-bottom: $spacing-md;
+  padding: $spacing-md;
+  background: rgba(26, 15, 31, 0.4);
+  border-radius: $radius-sm;
+  border-left: 3px solid $rose;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.commentText {
+  margin: 0 0 $spacing-xs 0;
+  color: $text-light;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.commentDate {
+  font-size: 12px;
+  color: $muted;
+  font-style: italic;
+}
+
+.noComments {
+  text-align: center;
+  padding: $spacing-xl;
+  color: $muted;
+  font-style: italic;
 }
 
 .lead {

@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
 import { BooksModule } from './books/books.module';
+import { CommentsModule } from './comments/comments.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { BooksModule } from './books/books.module';
     DatabaseModule,
     // Feature modules
     BooksModule,
+    CommentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
