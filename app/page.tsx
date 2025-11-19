@@ -27,6 +27,7 @@ export default function HomePage() {
   const [newChapter, setNewChapter] = useState('');
   const [newComment, setNewComment] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const [revealedChapters, setRevealedChapters] = useState<Set<string>>(new Set());
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 
@@ -113,6 +114,18 @@ export default function HomePage() {
   }, {} as Record<string, Comment[]>);
 
   const chapters = Object.keys(commentsByChapter).sort();
+
+  function toggleChapter(chapter: string) {
+    setRevealedChapters(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(chapter)) {
+        newSet.delete(chapter);
+      } else {
+        newSet.add(chapter);
+      }
+      return newSet;
+    });
+  }
 
   if (loading) {
     return (
@@ -212,19 +225,32 @@ export default function HomePage() {
           {/* Comments by Chapter */}
           {chapters.length > 0 ? (
             <div className={styles.commentsList}>
-              {chapters.map((chapter) => (
-                <div key={chapter} className={styles.chapterGroup}>
-                  <h3 className={styles.chapterTitle}>{chapter}</h3>
-                  {commentsByChapter[chapter].map((comment) => (
-                    <div key={comment.comment_id} className={styles.commentItem}>
-                      <p className={styles.commentText}>{comment.comment_text}</p>
-                      <span className={styles.commentDate}>
-                        {new Date(comment.created_at).toLocaleDateString()}
-                      </span>
+              {chapters.map((chapter) => {
+                const isRevealed = revealedChapters.has(chapter);
+                return (
+                  <div key={chapter} className={styles.chapterGroup}>
+                    <div className={styles.chapterHeader}>
+                      <h3 className={styles.chapterTitle}>{chapter}</h3>
+                      <button
+                        onClick={() => toggleChapter(chapter)}
+                        className={styles.revealButton}
+                      >
+                        {isRevealed ? 'Hide' : 'Reveal'}
+                      </button>
                     </div>
-                  ))}
-                </div>
-              ))}
+                    <div className={`${styles.commentsContainer} ${isRevealed ? styles.revealed : styles.blurred}`}>
+                      {commentsByChapter[chapter].map((comment) => (
+                        <div key={comment.comment_id} className={styles.commentItem}>
+                          <p className={styles.commentText}>{comment.comment_text}</p>
+                          <span className={styles.commentDate}>
+                            {new Date(comment.created_at).toLocaleDateString()}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           ) : (
             <div className={styles.noComments}>

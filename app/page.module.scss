@@ -292,13 +292,57 @@
   border: 1px solid rgba(255, 107, 157, 0.1);
 }
 
-.chapterTitle {
-  font-size: 20px;
-  margin: 0 0 $spacing-md 0;
-  color: $lavender;
-  font-weight: 600;
+.chapterHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
   padding-bottom: $spacing-sm;
   border-bottom: 1px solid rgba(199, 125, 255, 0.2);
+}
+
+.chapterTitle {
+  font-size: 20px;
+  margin: 0;
+  color: $lavender;
+  font-weight: 600;
+}
+
+.revealButton {
+  padding: $spacing-xs $spacing-md;
+  background: rgba(255, 107, 157, 0.2);
+  border: 1px solid rgba(255, 107, 157, 0.3);
+  border-radius: $radius-sm;
+  color: $rose;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba(255, 107, 157, 0.3);
+    border-color: $rose;
+    transform: translateY(-1px);
+  }
+}
+
+.commentsContainer {
+  transition: filter 0.3s ease, opacity 0.3s ease;
+  position: relative;
+}
+
+.commentsContainer.blurred {
+  filter: blur(8px);
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+}
+
+.commentsContainer.revealed {
+  filter: blur(0);
+  opacity: 1;
+  pointer-events: auto;
+  user-select: auto;
 }
 
 .commentItem {
