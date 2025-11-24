@@ -9,6 +9,8 @@
   z-index: 1;
   overflow: hidden;
   background: radial-gradient(ellipse at top, #2d1b3d 0%, #1a0f1f 50%, #0d0813 100%);
+  margin-top: $spacing-xl;
+  margin-bottom: $spacing-xl;
   
   // Magical sparkles background
   &::before {
