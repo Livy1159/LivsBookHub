@@ -48,7 +48,7 @@
   backdrop-filter: blur(15px);
   border-radius: 20px;
   border: 1px solid rgba(255, 107, 157, 0.15);
-  box-shadow: 0 8px 32px rgba(199, 125, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(199, 125, 255, 0.15), 0 0 20px rgba(255, 216, 155, 0.1);
 
   @media (max-width: $breakpoint-mobile) {
     width: 95%;
@@ -60,6 +60,17 @@
   margin-bottom: $spacing-lg;
   padding-bottom: $spacing-md;
   border-bottom: 1px solid rgba(255, 107, 157, 0.2);
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 107, 157, 0.2) 0%, rgba(255, 216, 155, 0.4) 50%, rgba(255, 107, 157, 0.2) 100%);
+  }
 }
 
 .label {
@@ -68,10 +79,11 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   color: $muted;
-  background: linear-gradient(135deg, $rose, $lavender);
+  background: linear-gradient(135deg, $rose, $gold, $lavender);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 0 10px rgba(255, 216, 155, 0.2);
 }
 
 .title {
@@ -97,6 +109,17 @@
   margin-top: $spacing-xl;
   padding-top: $spacing-lg;
   border-top: 1px solid rgba(255, 107, 157, 0.1);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 107, 157, 0.1) 0%, rgba(255, 216, 155, 0.3) 50%, rgba(255, 107, 157, 0.1) 100%);
+  }
 }
 
 .metaItem {
@@ -111,12 +134,17 @@
   letter-spacing: 1px;
   color: $muted;
   font-weight: 500;
+  background: linear-gradient(135deg, $muted, $gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .metaValue {
   font-size: 20px;
   color: $text-light;
   font-weight: 500;
+  text-shadow: 0 0 8px rgba(255, 216, 155, 0.2);
 
   @media (max-width: $breakpoint-mobile) {
     font-size: 18px;
@@ -182,16 +210,28 @@
   margin-top: $spacing-2xl;
   padding-top: $spacing-xl;
   border-top: 1px solid rgba(255, 107, 157, 0.2);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 107, 157, 0.2) 0%, rgba(255, 216, 155, 0.4) 50%, rgba(255, 107, 157, 0.2) 100%);
+  }
 }
 
 .commentsTitle {
   font-size: 28px;
   margin: 0 0 $spacing-lg 0;
-  background: linear-gradient(135deg, $rose, $lavender);
+  background: linear-gradient(135deg, $rose, $gold, $lavender);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 600;
+  text-shadow: 0 0 15px rgba(255, 216, 155, 0.2);
 
   @media (max-width: $breakpoint-mobile) {
     font-size: 24px;
@@ -204,6 +244,7 @@
   background: rgba(45, 27, 61, 0.3);
   border-radius: $radius-md;
   border: 1px solid rgba(255, 107, 157, 0.1);
+  box-shadow: 0 0 15px rgba(255, 216, 155, 0.05);
 }
 
 .formRow {
@@ -223,12 +264,12 @@
   color: $text-light;
   font-size: 16px;
   font-family: inherit;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 
   &:focus {
     outline: none;
-    border-color: $rose;
-    box-shadow: 0 0 0 2px rgba(255, 107, 157, 0.1);
+    border-color: $gold;
+    box-shadow: 0 0 0 2px rgba(255, 216, 155, 0.2), 0 0 10px rgba(255, 216, 155, 0.1);
   }
 
   &::placeholder {
@@ -246,12 +287,12 @@
   font-size: 16px;
   font-family: inherit;
   resize: vertical;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 
   &:focus {
     outline: none;
-    border-color: $rose;
-    box-shadow: 0 0 0 2px rgba(255, 107, 157, 0.1);
+    border-color: $gold;
+    box-shadow: 0 0 0 2px rgba(255, 216, 155, 0.2), 0 0 10px rgba(255, 216, 155, 0.1);
   }
 
   &::placeholder {
@@ -261,7 +302,7 @@
 
 .submitButton {
   padding: $spacing-sm $spacing-xl;
-  background: linear-gradient(135deg, $rose, $lavender);
+  background: linear-gradient(135deg, $rose, $gold, $lavender);
   border: none;
   border-radius: $radius-md;
   color: white;
@@ -269,10 +310,11 @@
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(255, 216, 155, 0.2);
 
   &:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 107, 157, 0.4);
+    box-shadow: 0 4px 16px rgba(255, 216, 155, 0.4), 0 0 20px rgba(255, 216, 155, 0.2);
   }
 
   &:disabled {
@@ -292,6 +334,7 @@
   background: rgba(45, 27, 61, 0.3);
   border-radius: $radius-md;
   border: 1px solid rgba(255, 107, 157, 0.1);
+  box-shadow: 0 0 10px rgba(255, 216, 155, 0.05);
 }
 
 .chapterHeader {
@@ -301,30 +344,47 @@
   margin-bottom: $spacing-md;
   padding-bottom: $spacing-sm;
   border-bottom: 1px solid rgba(199, 125, 255, 0.2);
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(199, 125, 255, 0.2) 0%, rgba(255, 216, 155, 0.4) 50%, rgba(199, 125, 255, 0.2) 100%);
+  }
 }
 
 .chapterTitle {
   font-size: 20px;
   margin: 0;
-  color: $lavender;
+  background: linear-gradient(135deg, $lavender, $gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: 600;
+  text-shadow: 0 0 10px rgba(255, 216, 155, 0.2);
 }
 
 .revealButton {
   padding: $spacing-xs $spacing-md;
   background: rgba(255, 107, 157, 0.2);
-  border: 1px solid rgba(255, 107, 157, 0.3);
+  border: 1px solid rgba(255, 216, 155, 0.3);
   border-radius: $radius-sm;
   color: $rose;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
+  box-shadow: 0 0 5px rgba(255, 216, 155, 0.1);
 
   &:hover {
-    background: rgba(255, 107, 157, 0.3);
-    border-color: $rose;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.3), rgba(255, 216, 155, 0.2));
+    border-color: $gold;
     transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(255, 216, 155, 0.3);
   }
 }
 
@@ -353,6 +413,19 @@
   background: rgba(26, 15, 31, 0.4);
   border-radius: $radius-sm;
   border-left: 3px solid $rose;
+  box-shadow: 0 0 8px rgba(255, 216, 155, 0.05);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, $rose, $gold, $rose);
+    border-radius: $radius-sm 0 0 $radius-sm;
+  }
 
   &:last-child {
     margin-bottom: 0;
