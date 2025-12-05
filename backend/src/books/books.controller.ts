@@ -18,8 +18,16 @@ export class BooksController {
 
 
   @Get()
-  async findAll(): Promise<Book[]> {
+  async findAll(@Query('username') username?: string): Promise<Book[]> {
+    if (username) {
+      return this.booksService.findByUsername(username);
+    }
     return this.booksService.findAll();
+  }
+
+  @Get('user/:username/current')
+  async findCurrentRead(@Param('username') username: string): Promise<Book | null> {
+    return this.booksService.findCurrentReadByUsername(username);
   }
 
   @Get(':id')

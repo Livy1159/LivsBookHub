@@ -165,3 +165,31 @@
   font-style: italic;
 }
 
+.userBook {
+  font-size: 14px;
+  color: $muted;
+  margin-top: $spacing-xs;
+  
+  strong {
+    color: $lavender;
+  }
+}
+
+.backLink {
+  margin-top: $spacing-xl;
+  padding-top: $spacing-lg;
+  border-top: 1px solid rgba(255, 107, 157, 0.1);
+  text-align: center;
+
+  a {
+    color: $lavender;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $rose;
+    }
+  }
+}
+

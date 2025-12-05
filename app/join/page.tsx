@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import styles from './page.module.scss';
 
-export default function HomePage() {
+export default function JoinPage() {
   const router = useRouter();
   const [username, setUsername] = useState('');
   const [title, setTitle] = useState('');
@@ -143,9 +143,10 @@ export default function HomePage() {
 
         <p className={styles.loginLink}>
           Already have a profile?{' '}
-          <Link href={'/search' as any} className={styles.link}>Search for users</Link>
+          <Link href="/" className={styles.link}>View your page</Link>
         </p>
       </section>
     </main>
   );
 }
+

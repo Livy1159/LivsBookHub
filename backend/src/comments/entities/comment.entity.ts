@@ -26,6 +26,9 @@ export class Comment {
   @Column({ name: 'comment_text', type: 'text' })
   comment_text: string;
 
+  @Column({ name: 'commenter_name', type: 'varchar', length: 100 })
+  commenter_name: string;
+
   @CreateDateColumn({ name: 'created_at' })
   created_at: Date;
 }

@@ -14,6 +14,16 @@ export class BooksService {
     return this.booksRepository.find();
   }
 
+  async findByUsername(username: string): Promise<Book[]> {
+    return this.booksRepository.find({ where: { username } });
+  }
+
+  async findCurrentReadByUsername(username: string): Promise<Book | null> {
+    return this.booksRepository.findOne({ 
+      where: { username, in_progress: true } 
+    });
+  }
+
   async findOne(book_id: number): Promise<Book> {
     return this.booksRepository.findOne({ where: { book_id } });
   }

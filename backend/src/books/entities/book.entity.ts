@@ -9,6 +9,9 @@ export class Book {
   @PrimaryGeneratedColumn({ name: 'book_id' })
   book_id: number;
 
+  @Column({ name: 'username', type: 'varchar', length: 100 })
+  username: string;
+
   @Column({ name: 'title', type: 'varchar', length: 255 })
   title: string;
 
