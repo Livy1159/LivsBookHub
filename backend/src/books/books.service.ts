@@ -18,6 +18,18 @@ export class BooksService {
     return this.booksRepository.find({ where: { username } });
   }
 
+  async searchUsernames(query: string): Promise<string[]> {
+    const books = await this.booksRepository
+      .createQueryBuilder('book')
+      .select('DISTINCT book.username', 'username')
+      .where('book.username LIKE :query', { query: `${query}%` })
+      .orderBy('book.username', 'ASC')
+      .limit(10)
+      .getRawMany();
+    
+    return books.map((book: any) => book.username);
+  }
+
   async findCurrentReadByUsername(username: string): Promise<Book | null> {
     return this.booksRepository.findOne({ 
       where: { username, in_progress: true } 

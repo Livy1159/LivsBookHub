@@ -18,19 +18,42 @@ export default function SearchPage() {
   const router = useRouter();
   const [query, setQuery] = useState('');
   const [books, setBooks] = useState<Book[]>([]);
+  const [suggestions, setSuggestions] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(false);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 
   useEffect(() => {
-    if (query.trim().length >= 2) {
-      searchUsers(query);
+    if (query.trim().length >= 1) {
+      fetchSuggestions(query);
+      if (query.trim().length >= 2) {
+        searchUsers(query);
+      } else {
+        setBooks([]);
+      }
     } else {
+      setSuggestions([]);
       setBooks([]);
+      setShowSuggestions(false);
     }
   }, [query]);
 
+  async function fetchSuggestions(searchQuery: string) {
+    try {
+      const response = await fetch(`${apiUrl}/books/search/usernames?q=${encodeURIComponent(searchQuery)}`);
+      if (response.ok) {
+        const data = await response.json();
+        setSuggestions(data);
+        setShowSuggestions(data.length > 0);
+      }
+    } catch (err) {
+      console.error('Failed to fetch suggestions:', err);
+    }
+  }
+
   async function searchUsers(searchQuery: string) {
     setLoading(true);
+    setShowSuggestions(false);
     try {
       // Search for books by username
       const response = await fetch(`${apiUrl}/books?username=${encodeURIComponent(searchQuery)}`);
@@ -55,6 +78,12 @@ export default function SearchPage() {
     }
   }
 
+  function handleSuggestionClick(username: string) {
+    setQuery(username);
+    setShowSuggestions(false);
+    searchUsers(username);
+  }
+
   function handleUserClick(username: string) {
     router.push(`/${username}`);
   }
@@ -71,13 +100,33 @@ export default function SearchPage() {
       <section className={styles.content}>
         <h1 className={styles.title}>Search Users</h1>
         <div className={styles.searchBox}>
-          <input
-            type="text"
-            placeholder="Search by username..."
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className={styles.searchInput}
-          />
+          <div className={styles.searchInputWrapper}>
+            <input
+              type="text"
+              placeholder="Search by username..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onFocus={() => query.trim().length >= 1 && suggestions.length > 0 && setShowSuggestions(true)}
+              onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+              className={styles.searchInput}
+            />
+            {showSuggestions && suggestions.length > 0 && (
+              <div className={styles.suggestions}>
+                {suggestions.map((username) => (
+                  <div
+                    key={username}
+                    className={styles.suggestionItem}
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      handleSuggestionClick(username);
+                    }}
+                  >
+                    @{username}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
 
         {loading && <div className={styles.loading}>Searching...</div>}

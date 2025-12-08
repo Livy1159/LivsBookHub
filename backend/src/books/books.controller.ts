@@ -30,6 +30,14 @@ export class BooksController {
     return this.booksService.findCurrentReadByUsername(username);
   }
 
+  @Get('search/usernames')
+  async searchUsernames(@Query('q') query: string): Promise<string[]> {
+    if (!query || query.trim().length === 0) {
+      return [];
+    }
+    return this.booksService.searchUsernames(query.trim());
+  }
+
   @Get(':id')
   async findOne(@Param('id', ParseIntPipe) id: number): Promise<Book> {
     return this.booksService.findOne(id);
