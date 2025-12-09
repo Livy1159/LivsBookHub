@@ -8,7 +8,7 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
-  background: radial-gradient(ellipse at top, #2d1b3d 0%, #1a0f1f 50%, #0d0813 100%);
+  background: radial-gradient(ellipse at top, #1a1a2e 0%, #0f0f1a 50%, #0a0a0f 100%);
 }
 
 .sparkleContainer {
@@ -26,16 +26,44 @@
   position: absolute;
   width: 10px;
   height: 10px;
-  background: $gold;
   border-radius: 50%;
-  box-shadow: 0 0 15px $gold, 0 0 25px rgba(255, 216, 155, 0.5);
   animation: twinkle 2s ease-in-out infinite;
 
-  &:nth-of-type(1) { top: 20%; left: 15%; animation-delay: 0s; }
-  &:nth-of-type(2) { top: 40%; left: 80%; animation-delay: 0.5s; }
-  &:nth-of-type(3) { top: 70%; left: 30%; animation-delay: 1s; }
-  &:nth-of-type(4) { top: 30%; left: 70%; animation-delay: 1.5s; }
-  &:nth-of-type(5) { top: 60%; left: 50%; animation-delay: 0.3s; }
+  &:nth-of-type(1) { 
+    top: 20%; 
+    left: 15%; 
+    animation-delay: 0s; 
+    background: $purple-light;
+    box-shadow: 0 0 15px $purple-light, 0 0 25px rgba(139, 92, 246, 0.5);
+  }
+  &:nth-of-type(2) { 
+    top: 40%; 
+    left: 80%; 
+    animation-delay: 0.5s; 
+    background: $green-light;
+    box-shadow: 0 0 15px $green-light, 0 0 25px rgba(52, 211, 153, 0.5);
+  }
+  &:nth-of-type(3) { 
+    top: 70%; 
+    left: 30%; 
+    animation-delay: 1s; 
+    background: $purple-bright;
+    box-shadow: 0 0 15px $purple-bright, 0 0 25px rgba(167, 139, 250, 0.5);
+  }
+  &:nth-of-type(4) { 
+    top: 30%; 
+    left: 70%; 
+    animation-delay: 1.5s; 
+    background: $green-bright;
+    box-shadow: 0 0 15px $green-bright, 0 0 25px rgba(110, 231, 183, 0.5);
+  }
+  &:nth-of-type(5) { 
+    top: 60%; 
+    left: 50%; 
+    animation-delay: 0.3s; 
+    background: $purple-light;
+    box-shadow: 0 0 15px $purple-light, 0 0 25px rgba(139, 92, 246, 0.5);
+  }
 }
 
 @keyframes twinkle {
@@ -56,11 +84,11 @@
   text-align: center;
   position: relative;
   z-index: 2;
-  background: rgba(45, 27, 61, 0.5);
+  background: rgba(26, 26, 46, 0.5);
   backdrop-filter: blur(15px);
   border-radius: 20px;
-  border: 1px solid rgba(255, 107, 157, 0.15);
-  box-shadow: 0 8px 32px rgba(199, 125, 255, 0.15), 0 0 20px rgba(255, 216, 155, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15), 0 0 20px rgba(52, 211, 153, 0.1);
 
   @media (max-width: $breakpoint-mobile) {
     padding: $spacing-xl $spacing-lg;
@@ -71,11 +99,11 @@
   font-size: 48px;
   margin: 0 0 $spacing-md 0;
   font-weight: 700;
-  background: linear-gradient(135deg, $rose 0%, $gold 50%, $lavender 100%);
+  background: linear-gradient(135deg, $purple-light 0%, $green-light 50%, $purple-bright 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 0 15px rgba(255, 216, 155, 0.2);
+  text-shadow: 0 0 15px rgba(52, 211, 153, 0.2);
 
   @media (max-width: $breakpoint-mobile) {
     font-size: 36px;
@@ -112,8 +140,8 @@
 .input {
   width: 100%;
   padding: $spacing-sm $spacing-md;
-  background: rgba(26, 15, 31, 0.6);
-  border: 1px solid rgba(255, 107, 157, 0.2);
+  background: rgba(15, 15, 26, 0.6);
+  border: 1px solid rgba(139, 92, 246, 0.2);
   border-radius: $radius-sm;
   color: $text-light;
   font-size: 16px;
@@ -122,8 +150,8 @@
 
   &:focus {
     outline: none;
-    border-color: $gold;
-    box-shadow: 0 0 0 2px rgba(255, 216, 155, 0.2), 0 0 10px rgba(255, 216, 155, 0.1);
+    border-color: $purple-bright;
+    box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.2), 0 0 10px rgba(52, 211, 153, 0.1);
   }
 
   &::placeholder {
@@ -140,7 +168,7 @@
 
 .submitButton {
   padding: $spacing-sm $spacing-xl;
-  background: linear-gradient(135deg, $rose, $gold, $lavender);
+  background: linear-gradient(135deg, $purple-light, $green-light, $purple-bright);
   border: none;
   border-radius: $radius-md;
   color: white;
@@ -148,12 +176,12 @@
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px rgba(255, 216, 155, 0.2);
+  box-shadow: 0 2px 8px rgba(52, 211, 153, 0.2);
   margin-top: $spacing-md;
 
   &:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(255, 216, 155, 0.4), 0 0 20px rgba(255, 216, 155, 0.2);
+    box-shadow: 0 4px 16px rgba(52, 211, 153, 0.4), 0 0 20px rgba(52, 211, 153, 0.2);
   }
 
   &:disabled {
@@ -163,11 +191,11 @@
 }
 
 .error {
-  background: rgba(255, 107, 157, 0.1);
-  border: 1px solid rgba(255, 107, 157, 0.3);
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: $radius-sm;
   padding: $spacing-sm $spacing-md;
-  color: $rose;
+  color: $purple-light;
   font-size: 14px;
   text-align: center;
 }
@@ -178,12 +206,12 @@
   color: $muted;
 
   a {
-    color: $lavender;
+    color: $green-light;
     font-weight: 500;
     text-decoration: underline;
 
     &:hover {
-      color: $rose;
+      color: $purple-light;
     }
   }
 }

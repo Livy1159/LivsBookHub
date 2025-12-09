@@ -1,16 +1,28 @@
-// Romantasy color palette
-$bg: #1a0f1f;
-$panel: #2d1b3d;
-$muted: #c9a8d9;
-$text: #f5e6f0;
-$brand: #ff6b9d;
-$accent: #c77dff;
-$border: #4a2d5a;
-$text-light: #f8d7e8;
-$panel-dark: #1a0f1f;
-$rose: #ff9ec5;
-$lavender: #b794d4;
-$gold: #ffd89b;
+// Dark purple, green, and black color palette
+$bg: #0a0a0f;
+$panel: #1a1a2e;
+$panel-dark: #0f0f1a;
+$muted: #6b7280;
+$text: #e5e7eb;
+$text-light: #f3f4f6;
+$border: #2d2d44;
+
+// Purple shades
+$purple-dark: #1e1b3d;
+$purple: #6d28d9;
+$purple-light: #8b5cf6;
+$purple-bright: #a78bfa;
+
+// Green shades
+$green-dark: #064e3b;
+$green: #10b981;
+$green-light: #34d399;
+$green-bright: #6ee7b7;
+
+// Accent colors
+$accent: $purple-light;
+$brand: $green;
+$highlight: $green-bright;
 
 $spacing-xs: 8px;
 $spacing-sm: 12px;
