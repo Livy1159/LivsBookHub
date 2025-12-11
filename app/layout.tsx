@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.scss';
 
 export const metadata: Metadata = {
-  title: 'Olivia Houlihan — Software Engineer',
-  description: 'Personal site and resume for Olivia Houlihan',
+  title: 'Olivia Houlihan',
+  description: 'Community for book lovers 🖤',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

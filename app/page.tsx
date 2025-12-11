@@ -70,8 +70,8 @@ export default function HomePage() {
         <div className={styles.sparkle}></div>
       </div>
       <section className={styles.content}>
-        <h1 className={styles.title}>Join LivsBookHub</h1>
-        <p className={styles.subtitle}>Share what you're currently reading</p>
+        <h1 className={styles.title}>Join Liv's Book Hub</h1>
+        <p className={styles.subtitle}>Share what you're currently reading!</p>
 
         <form onSubmit={handleSubmit} className={styles.form}>
           {error && <div className={styles.error}>{error}</div>}
