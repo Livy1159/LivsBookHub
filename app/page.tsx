@@ -101,7 +101,7 @@ export default function HomePage() {
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="Enter the book title"
+              placeholder="Title"
               required
               className={styles.input}
             />
@@ -114,7 +114,7 @@ export default function HomePage() {
               type="text"
               value={author}
               onChange={(e) => setAuthor(e.target.value)}
-              placeholder="Enter the author's name"
+              placeholder="Author"
               required
               className={styles.input}
             />
