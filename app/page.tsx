@@ -143,7 +143,7 @@ export default function HomePage() {
 
         <p className={styles.loginLink}>
           Already have a profile?{' '}
-          <Link href={'/search' as any} className={styles.link}>Search for users</Link>
+          <Link href={'/search' as any} className={styles.link}>Search By Username</Link>
         </p>
       </section>
     </main>
