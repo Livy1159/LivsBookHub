@@ -12,6 +12,7 @@ export default function HomePage() {
   const [author, setAuthor] = useState('');
   const [genre, setGenre] = useState('');
   const [currentChapter, setCurrentChapter] = useState('');
+  const [currentRating, setCurrentRating] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -44,6 +45,7 @@ export default function HomePage() {
           author: author.trim(),
           genre: genre.trim() || null,
           current_chapter: currentChapter.trim() || null,
+          current_rating: currentRating.trim() ? parseFloat(currentRating.trim()) : null,
           in_progress: true,
         }),
       });
@@ -144,6 +146,22 @@ export default function HomePage() {
               placeholder="e.g., Chapter 5, Prologue"
               className={styles.input}
             />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="currentRating">Current Rating (Optional)</label>
+            <input
+              id="currentRating"
+              type="number"
+              min="0"
+              max="5"
+              step="0.1"
+              value={currentRating}
+              onChange={(e) => setCurrentRating(e.target.value)}
+              placeholder="e.g., 4.5 (out of 5)"
+              className={styles.input}
+            />
+            <small className={styles.helpText}>Rate from 0 to 5 (e.g., 4.5)</small>
           </div>
 
           <button

@@ -26,4 +26,7 @@ export class Book {
 
   @Column({ name: 'current_chapter', type: 'varchar', length: 100, nullable: true })
   current_chapter: string | null;
+
+  @Column({ name: 'current_rating', type: 'decimal', precision: 3, scale: 1, nullable: true })
+  current_rating: number | null;
 }

@@ -301,6 +301,14 @@
   }
 }
 
+.editForm .helpText {
+  font-size: 12px;
+  color: $muted;
+  font-style: italic;
+  margin-top: $spacing-xs;
+  display: block;
+}
+
 .editButtons {
   display: flex;
   gap: $spacing-md;

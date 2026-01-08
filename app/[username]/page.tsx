@@ -13,6 +13,7 @@ interface Book {
   genre: string | null;
   in_progress: boolean;
   current_chapter: string | null;
+  current_rating: number | null;
 }
 
 interface Comment {
@@ -41,6 +42,7 @@ export default function UserPage() {
   const [editAuthor, setEditAuthor] = useState('');
   const [editGenre, setEditGenre] = useState('');
   const [editCurrentChapter, setEditCurrentChapter] = useState('');
+  const [editCurrentRating, setEditCurrentRating] = useState('');
   const [updating, setUpdating] = useState(false);
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
@@ -77,6 +79,10 @@ export default function UserPage() {
           setEditAuthor(data.author);
           setEditGenre(data.genre || '');
           setEditCurrentChapter(data.current_chapter || '');
+          const rating = data.current_rating;
+          setEditCurrentRating(rating !== null && rating !== undefined 
+            ? (typeof rating === 'number' ? rating.toString() : String(rating))
+            : '');
         }
         
         // Fetch comments if book exists
@@ -170,6 +176,7 @@ export default function UserPage() {
           author: editAuthor.trim(),
           genre: editGenre.trim() || null,
           current_chapter: editCurrentChapter.trim() || null,
+          current_rating: editCurrentRating.trim() ? parseFloat(editCurrentRating.trim()) : null,
           in_progress: true,
         }),
       });
@@ -203,6 +210,10 @@ export default function UserPage() {
       setEditAuthor(book.author);
       setEditGenre(book.genre || '');
       setEditCurrentChapter(book.current_chapter || '');
+      const rating = book.current_rating;
+      setEditCurrentRating(rating !== null && rating !== undefined 
+        ? (typeof rating === 'number' ? rating.toString() : String(rating))
+        : '');
       setIsEditing(true);
     }
   }
@@ -213,6 +224,10 @@ export default function UserPage() {
       setEditAuthor(book.author);
       setEditGenre(book.genre || '');
       setEditCurrentChapter(book.current_chapter || '');
+      const rating = book.current_rating;
+      setEditCurrentRating(rating !== null && rating !== undefined 
+        ? (typeof rating === 'number' ? rating.toString() : String(rating))
+        : '');
     }
     setIsEditing(false);
   }
@@ -305,6 +320,16 @@ export default function UserPage() {
                   <span className={styles.metaValue}>{book.current_chapter}</span>
                 </div>
               )}
+              {book.current_rating !== null && book.current_rating !== undefined && (
+                <div className={styles.metaItem}>
+                  <span className={styles.metaLabel}>Rating</span>
+                  <span className={styles.metaValue}>
+                    {typeof book.current_rating === 'number' 
+                      ? book.current_rating.toFixed(1) 
+                      : parseFloat(String(book.current_rating)).toFixed(1)} ⭐
+                  </span>
+                </div>
+              )}
             </div>
           </>
         ) : (
@@ -354,6 +379,21 @@ export default function UserPage() {
                 placeholder="e.g., Chapter 5, Prologue"
                 className={styles.input}
               />
+            </div>
+            <div className={styles.formRow}>
+              <label htmlFor="editCurrentRating">Current Rating (Optional)</label>
+              <input
+                id="editCurrentRating"
+                type="number"
+                min="0"
+                max="5"
+                step="0.1"
+                value={editCurrentRating}
+                onChange={(e) => setEditCurrentRating(e.target.value)}
+                placeholder="e.g., 4.5 (out of 5)"
+                className={styles.input}
+              />
+              <small className={styles.helpText}>Rate from 0 to 5 (e.g., 4.5)</small>
             </div>
             <div className={styles.editButtons}>
               <button
