@@ -12,6 +12,7 @@ interface Book {
   author: string;
   genre: string | null;
   in_progress: boolean;
+  current_chapter: string | null;
 }
 
 interface Comment {
@@ -39,6 +40,7 @@ export default function UserPage() {
   const [editTitle, setEditTitle] = useState('');
   const [editAuthor, setEditAuthor] = useState('');
   const [editGenre, setEditGenre] = useState('');
+  const [editCurrentChapter, setEditCurrentChapter] = useState('');
   const [updating, setUpdating] = useState(false);
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
@@ -74,6 +76,7 @@ export default function UserPage() {
           setEditTitle(data.title);
           setEditAuthor(data.author);
           setEditGenre(data.genre || '');
+          setEditCurrentChapter(data.current_chapter || '');
         }
         
         // Fetch comments if book exists
@@ -166,6 +169,7 @@ export default function UserPage() {
           title: editTitle.trim(),
           author: editAuthor.trim(),
           genre: editGenre.trim() || null,
+          current_chapter: editCurrentChapter.trim() || null,
           in_progress: true,
         }),
       });
@@ -198,6 +202,7 @@ export default function UserPage() {
       setEditTitle(book.title);
       setEditAuthor(book.author);
       setEditGenre(book.genre || '');
+      setEditCurrentChapter(book.current_chapter || '');
       setIsEditing(true);
     }
   }
@@ -207,6 +212,7 @@ export default function UserPage() {
       setEditTitle(book.title);
       setEditAuthor(book.author);
       setEditGenre(book.genre || '');
+      setEditCurrentChapter(book.current_chapter || '');
     }
     setIsEditing(false);
   }
@@ -293,6 +299,12 @@ export default function UserPage() {
                   <span className={styles.metaValue}>{book.genre}</span>
                 </div>
               )}
+              {book.current_chapter && (
+                <div className={styles.metaItem}>
+                  <span className={styles.metaLabel}>Current Chapter</span>
+                  <span className={styles.metaValue}>{book.current_chapter}</span>
+                </div>
+              )}
             </div>
           </>
         ) : (
@@ -329,6 +341,17 @@ export default function UserPage() {
                 value={editGenre}
                 onChange={(e) => setEditGenre(e.target.value)}
                 placeholder="e.g., Fantasy, Romance, Mystery"
+                className={styles.input}
+              />
+            </div>
+            <div className={styles.formRow}>
+              <label htmlFor="editCurrentChapter">Current Chapter (Optional)</label>
+              <input
+                id="editCurrentChapter"
+                type="text"
+                value={editCurrentChapter}
+                onChange={(e) => setEditCurrentChapter(e.target.value)}
+                placeholder="e.g., Chapter 5, Prologue"
                 className={styles.input}
               />
             </div>

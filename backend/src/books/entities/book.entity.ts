@@ -23,4 +23,7 @@ export class Book {
 
   @Column({ name: 'in_progress', type: 'boolean', default: false, nullable: true })
   in_progress: boolean;
+
+  @Column({ name: 'current_chapter', type: 'varchar', length: 100, nullable: true })
+  current_chapter: string | null;
 }

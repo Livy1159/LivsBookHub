@@ -11,6 +11,7 @@ export default function HomePage() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [genre, setGenre] = useState('');
+  const [currentChapter, setCurrentChapter] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -42,6 +43,7 @@ export default function HomePage() {
           title: title.trim(),
           author: author.trim(),
           genre: genre.trim() || null,
+          current_chapter: currentChapter.trim() || null,
           in_progress: true,
         }),
       });
@@ -128,6 +130,18 @@ export default function HomePage() {
               value={genre}
               onChange={(e) => setGenre(e.target.value)}
               placeholder="e.g., Fantasy, Romance, Mystery"
+              className={styles.input}
+            />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="currentChapter">Current Chapter (Optional)</label>
+            <input
+              id="currentChapter"
+              type="text"
+              value={currentChapter}
+              onChange={(e) => setCurrentChapter(e.target.value)}
+              placeholder="e.g., Chapter 5, Prologue"
               className={styles.input}
             />
           </div>
