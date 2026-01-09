@@ -40,29 +40,29 @@
     top: 40%; 
     left: 80%; 
     animation-delay: 0.5s; 
-    background: $green-light;
-    box-shadow: 0 0 15px $green-light, 0 0 25px rgba(52, 211, 153, 0.5);
+    background: $pink-light;
+    box-shadow: 0 0 15px $pink-light, 0 0 25px rgba(232, 121, 249, 0.5);
   }
   &:nth-of-type(3) { 
     top: 70%; 
     left: 30%; 
     animation-delay: 1s; 
-    background: $purple-bright;
-    box-shadow: 0 0 15px $purple-bright, 0 0 25px rgba(167, 139, 250, 0.5);
+    background: $green-light;
+    box-shadow: 0 0 15px $green-light, 0 0 25px rgba(52, 211, 153, 0.5);
   }
   &:nth-of-type(4) { 
     top: 30%; 
     left: 70%; 
     animation-delay: 1.5s; 
-    background: $green-bright;
-    box-shadow: 0 0 15px $green-bright, 0 0 25px rgba(110, 231, 183, 0.5);
+    background: $purple-bright;
+    box-shadow: 0 0 15px $purple-bright, 0 0 25px rgba(167, 139, 250, 0.5);
   }
   &:nth-of-type(5) { 
     top: 60%; 
     left: 50%; 
     animation-delay: 0.3s; 
-    background: $purple-light;
-    box-shadow: 0 0 15px $purple-light, 0 0 25px rgba(139, 92, 246, 0.5);
+    background: $pink-bright;
+    box-shadow: 0 0 15px $pink-bright, 0 0 25px rgba(240, 171, 252, 0.5);
   }
 }
 
@@ -99,7 +99,7 @@
   font-size: 48px;
   margin: 0 0 $spacing-md 0;
   font-weight: 700;
-  background: linear-gradient(135deg, $purple-light 0%, $green-light 50%, $purple-bright 100%);
+  background: linear-gradient(135deg, $purple-light 0%, $pink-light 25%, $green-light 50%, $purple-bright 75%, $pink-bright 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -150,8 +150,8 @@
 
   &:focus {
     outline: none;
-    border-color: $green-light;
-    box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.2), 0 0 10px rgba(139, 92, 246, 0.1);
+    border-color: $pink-light;
+    box-shadow: 0 0 0 2px rgba(232, 121, 249, 0.2), 0 0 10px rgba(139, 92, 246, 0.1);
   }
 
   &::placeholder {
@@ -168,7 +168,7 @@
 
 .submitButton {
   padding: $spacing-sm $spacing-xl;
-  background: linear-gradient(135deg, $purple-light, $green-light, $purple-bright);
+  background: linear-gradient(135deg, $purple-light, $pink-light, $green-light, $purple-bright, $pink-bright);
   border: none;
   border-radius: $radius-md;
   color: white;
@@ -176,12 +176,12 @@
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px rgba(52, 211, 153, 0.2);
+  box-shadow: 0 2px 8px rgba(52, 211, 153, 0.2), 0 0 10px rgba(232, 121, 249, 0.2);
   margin-top: $spacing-md;
 
   &:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(52, 211, 153, 0.4), 0 0 20px rgba(139, 92, 246, 0.2);
+    box-shadow: 0 4px 16px rgba(52, 211, 153, 0.4), 0 0 20px rgba(232, 121, 249, 0.3), 0 0 15px rgba(52, 211, 153, 0.2);
   }
 
   &:disabled {

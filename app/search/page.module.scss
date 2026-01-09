@@ -53,12 +53,17 @@
   height: 10px;
   border-radius: 50%;
   
-  &:nth-of-type(1), &:nth-of-type(3), &:nth-of-type(5) {
+  &:nth-of-type(1), &:nth-of-type(4) {
     background: $purple-light;
     box-shadow: 0 0 15px $purple-light, 0 0 25px rgba(139, 92, 246, 0.5);
   }
   
-  &:nth-of-type(2), &:nth-of-type(4) {
+  &:nth-of-type(2), &:nth-of-type(5) {
+    background: $pink-light;
+    box-shadow: 0 0 15px $pink-light, 0 0 25px rgba(232, 121, 249, 0.5);
+  }
+  
+  &:nth-of-type(3) {
     background: $green-light;
     box-shadow: 0 0 15px $green-light, 0 0 25px rgba(52, 211, 153, 0.5);
   }
@@ -100,7 +105,7 @@
   font-size: 48px;
   margin: 0 0 $spacing-xl 0;
   font-weight: 700;
-  background: linear-gradient(135deg, $purple-light 0%, $green-light 50%, $purple-bright 100%);
+  background: linear-gradient(135deg, $purple-light 0%, $pink-light 25%, $green-light 50%, $purple-bright 75%, $pink-bright 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

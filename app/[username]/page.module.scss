@@ -42,29 +42,29 @@
     top: 40%; 
     left: 80%; 
     animation-delay: 0.5s; 
-    background: $green-light;
-    box-shadow: 0 0 15px $green-light, 0 0 25px rgba(52, 211, 153, 0.5);
+    background: $pink-light;
+    box-shadow: 0 0 15px $pink-light, 0 0 25px rgba(232, 121, 249, 0.5);
   }
   &:nth-of-type(3) { 
     top: 70%; 
     left: 30%; 
     animation-delay: 1s; 
-    background: $purple-bright;
-    box-shadow: 0 0 15px $purple-bright, 0 0 25px rgba(167, 139, 250, 0.5);
+    background: $green-light;
+    box-shadow: 0 0 15px $green-light, 0 0 25px rgba(52, 211, 153, 0.5);
   }
   &:nth-of-type(4) { 
     top: 30%; 
     left: 70%; 
     animation-delay: 1.5s; 
-    background: $green-bright;
-    box-shadow: 0 0 15px $green-bright, 0 0 25px rgba(110, 231, 183, 0.5);
+    background: $purple-bright;
+    box-shadow: 0 0 15px $purple-bright, 0 0 25px rgba(167, 139, 250, 0.5);
   }
   &:nth-of-type(5) { 
     top: 60%; 
     left: 50%; 
     animation-delay: 0.3s; 
-    background: $purple-light;
-    box-shadow: 0 0 15px $purple-light, 0 0 25px rgba(139, 92, 246, 0.5);
+    background: $pink-bright;
+    box-shadow: 0 0 15px $pink-bright, 0 0 25px rgba(240, 171, 252, 0.5);
   }
 }
 
@@ -119,7 +119,7 @@
   font-size: 36px;
   margin: 0 0 $spacing-md 0;
   font-weight: 700;
-  background: linear-gradient(135deg, $purple-light 0%, $green-light 50%, $purple-bright 100%);
+  background: linear-gradient(135deg, $purple-light 0%, $pink-light 25%, $green-light 50%, $purple-bright 75%, $pink-bright 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -136,7 +136,7 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   color: $muted;
-  background: linear-gradient(135deg, $purple-light, $green-light, $purple-bright);
+  background: linear-gradient(135deg, $purple-light, $pink-light, $green-light, $purple-bright, $pink-bright);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -161,7 +161,7 @@
   margin: 0;
   font-weight: 700;
   line-height: 1.2;
-  background: linear-gradient(135deg, $purple-light 0%, $green-light 50%, $purple-bright 100%);
+  background: linear-gradient(135deg, $purple-light 0%, $pink-light 25%, $green-light 50%, $purple-bright 75%, $pink-bright 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -317,7 +317,7 @@
 
 .updateButton {
   padding: $spacing-sm $spacing-xl;
-  background: linear-gradient(135deg, $purple-light, $green-light, $purple-bright);
+  background: linear-gradient(135deg, $purple-light, $pink-light, $green-light, $purple-bright, $pink-bright);
   border: none;
   border-radius: $radius-md;
   color: white;
@@ -384,7 +384,7 @@
 .commentsTitle {
   font-size: 28px;
   margin: 0 0 $spacing-lg 0;
-  background: linear-gradient(135deg, $purple-light, $green-light, $purple-bright);
+  background: linear-gradient(135deg, $purple-light, $pink-light, $green-light, $purple-bright, $pink-bright);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -443,7 +443,7 @@
 
 .submitButton {
   padding: $spacing-sm $spacing-xl;
-  background: linear-gradient(135deg, $purple-light, $green-light, $purple-bright);
+  background: linear-gradient(135deg, $purple-light, $pink-light, $green-light, $purple-bright, $pink-bright);
   border: none;
   border-radius: $radius-md;
   color: white;
@@ -501,7 +501,7 @@
 .chapterTitle {
   font-size: 20px;
   margin: 0;
-  background: linear-gradient(135deg, $purple-light, $green-light);
+  background: linear-gradient(135deg, $purple-light, $pink-light, $green-light);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
