@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import TBR from '../components/tbr';
 import styles from './page.module.scss';
 
 interface Book {
@@ -496,6 +497,8 @@ export default function UserPage() {
             </div>
           )}
         </div>
+
+        <TBR />
 
         <div className={styles.backLink}>
           <Link href="/">← Back to home</Link>
